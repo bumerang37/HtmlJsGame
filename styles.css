@@ -2,17 +2,34 @@ body {
     background: #000900;
     /* Prevent the ugly blue highlighting from accidental selection of text */
     user-select: none;
+    /* Disable long touch hold select */
+    -webkit-touch-callout: none !important;
+    overflow: hidden;
 }
 
 #wrapper {
     position: absolute;
+    /* Wrapper cover entire window height and width */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 #gamecontainer {
-    /* Set game container width, height, and background */
+    /* Set game container width, height and background */
     width: 640px;
     height: 480px;
-    background: url("images/splashscreen.png");
+    /* Use a wider splash screen and center it within the container */
+    background: url("images/splashscreenwide.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    /* Center the game container relative to outer wrapper */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: center center;
 }
 
 .gamelayer {
@@ -95,4 +112,48 @@ body {
     position: absolute;
     top: 5%;
     right: 5%;
+}
+
+
+/* Ending Screen */
+
+#endingscreen {
+    text-align: center;
+    background: rgba(1, 1, 1, 0.3);
+}
+
+#endingscreen div {
+    /* Center the popup div within the screen */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: center center;
+    height: 250px;
+    width: 330px;
+    border: 1px solid gray;
+    border-radius: 25px;
+    background: rgba(1, 1, 1, 0.3);
+    padding: 10px 30px 40px 50px;
+    text-align: left;
+}
+
+.endingoption {
+    font: 20px "Comic Sans MS";
+    text-shadow: 0 0 2px black;
+    color: white;
+}
+
+#endingscreen p img {
+    top: 10px;
+    position: relative;
+    cursor: pointer;
+    padding-right: 20px;
+}
+
+#endingmessage {
+    font: 25px "Comic Sans MS";
+    text-shadow: 0 0 2px black;
+    color: yellow;
+    text-align: center;
 }
